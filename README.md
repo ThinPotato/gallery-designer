@@ -2,10 +2,10 @@
 This is a volunteer project in association with the Zuccaire Gallery. This application creates a virtual enviornement where the curators can visualize their gallery in any array of layouts and designs. The purpose of this application is to help make designing the gallery for different exhibitions as easy as possible.
 
 ## Features
-[] Import images into the program
-[] Selectable walls based on the floor-plan where images can be placed and sized in space
-[] JPEG export from multiple angles 
-[] Saving projects so they can be added to and iterated on in the future.
+- [ ] Import images into the program
+- [ ] Selectable walls based on the floor-plan where images can be placed and sized in space
+- [ ] JPEG export from multiple angles 
+- [ ] Saving projects so they can be added to and iterated on in the future.
 
 ---
 
