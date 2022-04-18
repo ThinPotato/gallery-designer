@@ -7,6 +7,12 @@ This is a volunteer project in association with the Zuccaire Gallery. This appli
 - [ ] JPEG export from multiple angles 
 - [ ] Saving projects so they can be added to and iterated on in the future.
 
+## Wireframe
+[Wireframe.pdf](https://github.com/ThinPotato/gallery-designer/files/8507543/Wireframe.pdf)
+
+## UI mockup
+[iMac - 1.pdf](https://github.com/ThinPotato/gallery-designer/files/8507545/iMac.-.1.pdf)
+
 ---
 
 ## Software Information
