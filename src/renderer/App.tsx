@@ -34,7 +34,6 @@ const Hello = () => {
             </span>
             Donate
           </button>
-          
         </a>
       </div>
     </div>

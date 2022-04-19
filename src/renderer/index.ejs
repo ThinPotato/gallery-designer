@@ -7,7 +7,8 @@
     right: 0;
     width: 75px;
     text-align:center;
-
+    background-color: white;
+    border: solid .5px black;
   }
   #render_button {
     background-color: white;
@@ -15,12 +16,15 @@
   }
 </style>
 <div class="input-group" id="render_box">
+  <h6 style="text-align:center">Render Views</h6>
   <input type="checkbox" id="Angle1">
   <label for="Angle1">Angle 1</label><br>
   <input type="checkbox" id="Angle2">
   <label for="Angle2">Angle 2</label><br>
   <input type="checkbox" id="Angle3">
   <label for="Angle3">Angle 3</label><br>
+  <input type="checkbox" id="Angle4">
+  <label for="Angle4">Angle 4</label><br>
   <span>
   <button class="btn btn-default" type="button" id="render_button">Render</button>
   </span>
@@ -42,6 +46,7 @@
 
   <!-- You can also require other files to run in this process -->
   <script src="./renderer.js"></script>
+  <script src="renderViews.js"></script>
 </body>
 
 </html>
