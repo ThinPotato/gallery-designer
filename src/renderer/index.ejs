@@ -5,17 +5,26 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 100px;
-    text-align:right;
+    width: 75px;
+    text-align:center;
+
+  }
+  #render_button {
+    background-color: white;
+    border:solid .5px black;
   }
 </style>
-
-<select id="render_box" >
-  <option>Angle 1</option>
-  <option>Angle 2</option>
-  <option>Angle 3</option>
-  <option>Angle 4</option>
-</select>
+<div class="input-group" id="render_box">
+  <input type="checkbox" id="Angle1">
+  <label for="Angle1">Angle 1</label><br>
+  <input type="checkbox" id="Angle2">
+  <label for="Angle2">Angle 2</label><br>
+  <input type="checkbox" id="Angle3">
+  <label for="Angle3">Angle 3</label><br>
+  <span>
+  <button class="btn btn-default" type="button" id="render_button">Render</button>
+  </span>
+</div>
 <head>
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
