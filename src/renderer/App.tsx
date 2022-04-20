@@ -2,6 +2,8 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactDOM  from 'react-dom';
+import MiniMap from '../components/mini-map';
 
 const Hello = () => {
   return (
@@ -42,6 +44,7 @@ const Hello = () => {
 };
 
 export default function App() {
+  ReactDOM.render(<MiniMap />, document.getElementById('root'));
   return (
     <Router>
       <Routes>
