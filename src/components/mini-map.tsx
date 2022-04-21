@@ -9,15 +9,16 @@ class MiniMap extends React.Component{
         return(
             <div className="mini-map">
                 <Card style={{ width: '18rem' }}>
+                    <Card.Header><h2>View</h2></Card.Header>
                     <Card.Body>
                         <Container>
                             <Col>
-                                <Button>Back wall</Button>
                                 <Button>Left Wall</Button>
                                 <Button>Right wall</Button>
                                 <Button>Middle wall Left</Button>
                                 <Button>Middle wall Right</Button>
                                 <Button>Little Wall</Button>
+                                <Button>Back wall</Button>
                             </Col>
                         </Container>
                     </Card.Body>

@@ -1,50 +1,27 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ReactDOM  from 'react-dom';
 import MiniMap from '../components/mini-map';
+import ThreeBackground from 'components/three-background';
+import { Container } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 const Hello = () => {
   return (
     <div>
-      <div className="Hello">
-        <img width="200px" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              🙏
-            </span>
-            Donate
-          </button>
-          
-        </a>
-      </div>
+      <Container>
+      <Row>
+        <Col>
+          <MiniMap></MiniMap>
+        </Col>
+        <Col sm={8} color={"red"}><ThreeBackground></ThreeBackground></Col>
+      </Row>
+      </Container>
     </div>
   );
 };
 
 export default function App() {
-  ReactDOM.render(<MiniMap />, document.getElementById('root'));
   return (
     <Router>
       <Routes>
