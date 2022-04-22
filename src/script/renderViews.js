@@ -1,7 +1,3 @@
-function test() {
-  console.log('button works');
-}
-
 function render() {
   const a1 = document.getElementById('Angle1').checked;
   const a2 = document.getElementById('Angle2').checked;
@@ -15,4 +11,4 @@ function render() {
   }
 }
 
-document.getElementById('render_button').addEventListener('click', test);
+document.getElementById('render_button').addEventListener('click', render);
