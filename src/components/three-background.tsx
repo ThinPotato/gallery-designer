@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
+import MiniMap from './mini-map';
 
 class ThreeBackground extends Component{
     [x: string]: any;
@@ -26,6 +27,13 @@ class ThreeBackground extends Component{
     const material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
     this.cube = new THREE.Mesh(geometry, material)
     this.scene.add(this.cube)
+
+    var testButton = document.getElementById("left-wall");
+    testButton?.addEventListener("click", ()=>{
+      console.log("test button pressed");
+    this.camera.position.z = 10
+    });
+
 this.start()
   }
 componentWillUnmount(){
