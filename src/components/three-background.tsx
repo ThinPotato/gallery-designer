@@ -1,60 +1,72 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-class ThreeBackground extends Component{
-    [x: string]: any;
-  componentDidMount(){
-    const width = this.mount.clientWidth
-    const height = 1080
-    //ADD SCENE
-    this.scene = new THREE.Scene()
-    //ADD CAMERA
-    this.camera = new THREE.PerspectiveCamera(
-      75,
-      width / height,
-      0.1,
-      1000
-    )
-    this.camera.position.z = 4
-    //ADD RENDERER
-    this.renderer = new THREE.WebGLRenderer({ antialias: true })
-    this.renderer.setClearColor('#000000')
-    this.renderer.setSize(width, height)
-    this.mount.appendChild(this.renderer.domElement)
-    //ADD CUBE
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
-    this.cube = new THREE.Mesh(geometry, material)
-    this.scene.add(this.cube)
-this.start()
+let root = new THREE.Object3D();
+
+class ThreeBackground extends Component {
+  [x: string]: any;
+
+  componentDidMount() {
+    const width = this.mount.clientWidth;
+    const height = 1080;
+    // ADD SCENE
+    this.scene = new THREE.Scene();
+    // ADD CAMERA
+    this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    this.camera.position.z = 4;
+    // ADD RENDERER
+    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer.setClearColor('#000000');
+    this.renderer.setSize(width, height);
+    this.mount.appendChild(this.renderer.domElement);
+    // ADD CUBE
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    const material = new THREE.MeshBasicMaterial({ color: '#433F81' });
+    this.cube = new THREE.Mesh(geometry, material);
+    this.scene.add(this.cube);
+    const loader = new GLTFLoader();
+    loader.load('../model/Zuccaire.glb', function (gltf) {
+      root = gltf.scene;
+    });
+    this.scene.add(root);
+    this.start();
   }
-componentWillUnmount(){
-    this.stop()
-    this.mount.removeChild(this.renderer.domElement)
+
+  componentWillUnmount() {
+    this.stop();
+    this.mount.removeChild(this.renderer.domElement);
   }
-start = () => {
+
+  start = () => {
     if (!this.frameId) {
-      this.frameId = requestAnimationFrame(this.animate)
+      this.frameId = requestAnimationFrame(this.animate);
     }
-  }
-stop = () => {
-    cancelAnimationFrame(this.frameId)
-  }
-animate = () => {
-   this.cube.rotation.x += 0.01
-   this.cube.rotation.y += 0.01
-   this.renderScene()
-   this.frameId = window.requestAnimationFrame(this.animate)
- }
-renderScene = () => {
-  this.renderer.render(this.scene, this.camera)
-}
-render(){
-    return(
+  };
+
+  stop = () => {
+    cancelAnimationFrame(this.frameId);
+  };
+
+  animate = () => {
+    this.cube.rotation.x += 0.01;
+    this.cube.rotation.y += 0.01;
+    this.renderScene();
+    this.frameId = window.requestAnimationFrame(this.animate);
+  };
+
+  renderScene = () => {
+    this.renderer.render(this.scene, this.camera);
+  };
+
+  render() {
+    return (
       <div
-        ref={(mount) => { this.mount = mount }}
+        ref={(mount) => {
+          this.mount = mount;
+        }}
       />
-    )
+    );
   }
 }
-export default ThreeBackground
+export default ThreeBackground;

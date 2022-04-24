@@ -1,21 +1,21 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MiniMap from '../components/mini-map';
 import ThreeBackground from 'components/three-background';
-import { Container } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
+import MiniMap from '../components/mini-map';
 
 const Hello = () => {
   return (
     <div>
       <Container>
-      <Row>
-        <Col>
-          <MiniMap></MiniMap>
-        </Col>
-        <Col sm={8} color={"red"}><ThreeBackground></ThreeBackground></Col>
-      </Row>
+        <Row>
+          <Col>
+            <MiniMap />
+          </Col>
+          <Col sm={8} color="red">
+            <ThreeBackground />
+          </Col>
+        </Row>
       </Container>
     </div>
   );
