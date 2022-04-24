@@ -13,12 +13,12 @@ class MiniMap extends React.Component{
                     <Card.Body>
                         <Container>
                             <Col>
-                                <Button>Left Wall</Button>
-                                <Button>Right wall</Button>
-                                <Button>Middle wall Left</Button>
-                                <Button>Middle wall Right</Button>
-                                <Button>Little Wall</Button>
-                                <Button>Back wall</Button>
+                                <Button id="left-wall">Left Wall</Button>
+                                <Button id="right-wall">Right wall</Button>
+                                <Button id="middle-wall-left">Middle wall Left</Button>
+                                <Button id="middle-wall-right">Middle wall Right</Button>
+                                <Button id="little-wall">Little Wall</Button>
+                                <Button id="back-wall">Back wall</Button>
                             </Col>
                         </Container>
                     </Card.Body>
