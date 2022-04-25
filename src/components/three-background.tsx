@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import MiniMap from './mini-map';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
 
 class ThreeBackground extends Component{
     [x: string]: any;
@@ -31,11 +32,12 @@ class ThreeBackground extends Component{
     var testButton = document.getElementById("left-wall");
     testButton?.addEventListener("click", ()=>{
       console.log("test button pressed");
-    this.camera.position.z = 10
+      //this.camera.position.z = 10
+      this.newArtwork()
     });
-
 this.start()
   }
+
 componentWillUnmount(){
     this.stop()
     this.mount.removeChild(this.renderer.domElement)
@@ -63,6 +65,16 @@ render(){
         ref={(mount) => { this.mount = mount }}
       />
     )
+  }
+newArtwork(){
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const cube = new THREE.Mesh( geometry, material );
+    this.scene.add( cube );
+    //add transform controls
+    const controls = new TransformControls(this.camera, this.renderer.domElement)
+    controls.attach(cube)
+    this.scene.add(controls)
   }
 }
 export default ThreeBackground
