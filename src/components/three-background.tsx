@@ -7,7 +7,7 @@ class ThreeBackground extends Component{
     [x: string]: any;
   componentDidMount(){
     const width = this.mount.clientWidth
-    const height = 1080
+    const height = 780
     //ADD SCENE
     this.scene = new THREE.Scene()
     //ADD CAMERA
@@ -23,11 +23,7 @@ class ThreeBackground extends Component{
     this.renderer.setClearColor('#000000')
     this.renderer.setSize(width, height)
     this.mount.appendChild(this.renderer.domElement)
-    //ADD CUBE
-    const geometry = new THREE.BoxGeometry(1, 1, 1)
-    const material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
-    this.cube = new THREE.Mesh(geometry, material)
-    this.scene.add(this.cube)
+
 
     var testButton = document.getElementById("left-wall");
     testButton?.addEventListener("click", ()=>{
@@ -51,8 +47,6 @@ stop = () => {
     cancelAnimationFrame(this.frameId)
   }
 animate = () => {
-   this.cube.rotation.x += 0.01
-   this.cube.rotation.y += 0.01
    this.renderScene()
    this.frameId = window.requestAnimationFrame(this.animate)
  }
@@ -67,12 +61,14 @@ render(){
     )
   }
 newArtwork(){
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const geometry = new THREE.BoxGeometry(2,2, 0.1);
+    const material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
     const cube = new THREE.Mesh( geometry, material );
     this.scene.add( cube );
     //add transform controls
     const controls = new TransformControls(this.camera, this.renderer.domElement)
+    controls.showZ = false
+
     controls.attach(cube)
     this.scene.add(controls)
   }
