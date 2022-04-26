@@ -24,12 +24,42 @@ class ThreeBackground extends Component{
     this.renderer.setSize(width, height)
     this.mount.appendChild(this.renderer.domElement)
 
-
+    //BUTTON CONNECTIONS
     var testButton = document.getElementById("left-wall");
+    var leftWall = document.getElementById("left-wall")
+    var rightWall = document.getElementById("right-wall")
+    var middleLeftWall = document.getElementById("middle-wall-left")
+    var middleRightWall = document.getElementById("middle-wall-right")
+    var littleWall = document.getElementById("little-wall")
+    var backWall = document.getElementById("back-wall")
+
     testButton?.addEventListener("click", ()=>{
       console.log("test button pressed");
-      //this.camera.position.z = 10
       this.newArtwork()
+    });
+
+    leftWall?.addEventListener("click",()=>{
+      //TODO: Move camer to wall
+    });
+
+    rightWall?.addEventListener("click",()=>{
+      //TODO: Move camer to wall
+    });
+
+    middleLeftWall?.addEventListener("click",()=>{
+      //TODO: Move camer to wall
+    });
+
+    middleRightWall?.addEventListener("click",()=>{
+      //TODO: Move camer to wall
+    });
+
+    littleWall?.addEventListener("click",()=>{
+      //TODO: Move camer to wall
+    });
+
+    backWall?.addEventListener("click",()=>{
+      //TODO: Move camer to wall
     });
 this.start()
   }
@@ -72,5 +102,11 @@ newArtwork(){
     controls.attach(cube)
     this.scene.add(controls)
   }
+
+moveCamera(x: number,y: number,z: number){
+  this.camera.position.x = x
+  this.camera.position.y = y
+  this.camera.position.z = z
+}
 }
 export default ThreeBackground
