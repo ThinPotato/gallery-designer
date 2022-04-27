@@ -35,7 +35,7 @@ class ThreeBackground extends Component{
 
     testButton?.addEventListener("click", ()=>{
       console.log("test button pressed");
-      this.newArtwork("file:/Users/bryce/Downloads/DSCF0125.jpeg")
+      this.newArtwork("file:/Users/bryce/Downloads/temp_photo_file.jpg")
     });
 
     leftWall?.addEventListener("click",()=>{
@@ -44,7 +44,8 @@ class ThreeBackground extends Component{
 
     rightWall?.addEventListener("click",()=>{
       //TODO: Move camer to wall
-      this.moveCamera(1,0.5,1)
+      //this.moveCamera(1,0.5,1)
+      this.rotateCamera(0,50,0)
     });
 
     middleLeftWall?.addEventListener("click",()=>{
@@ -100,7 +101,7 @@ newArtwork(texture: string){
   //add transform controls
   const controls = new TransformControls(this.camera, this.renderer.domElement)
   controls.showZ = false
-  controls.setMode("rotate")
+  controls.setMode("scale")
   controls.attach(cube)
   this.scene.add(controls)
   }
@@ -109,6 +110,12 @@ moveCamera(x: number,y: number,z: number){
   this.camera.position.x = x
   this.camera.position.y = y
   this.camera.position.z = z
+}
+
+rotateCamera(x:number, y: number, z:number){
+  this.camera.rotation.x = x
+  this.camera.rotation.y = y
+  this.camera.rotation.z = z
 }
 }
 export default ThreeBackground
