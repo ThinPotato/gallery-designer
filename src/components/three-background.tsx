@@ -35,7 +35,7 @@ class ThreeBackground extends Component{
 
     testButton?.addEventListener("click", ()=>{
       console.log("test button pressed");
-      this.newArtwork()
+      this.newArtwork("file:/Users/bryce/Downloads/DSCF0125.jpeg")
     });
 
     leftWall?.addEventListener("click",()=>{
@@ -44,6 +44,7 @@ class ThreeBackground extends Component{
 
     rightWall?.addEventListener("click",()=>{
       //TODO: Move camer to wall
+      this.moveCamera(1,0.5,1)
     });
 
     middleLeftWall?.addEventListener("click",()=>{
@@ -90,17 +91,18 @@ render(){
       />
     )
   }
-newArtwork(){
-    const geometry = new THREE.BoxGeometry(2,2, 0.1);
-    const material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
-    const cube = new THREE.Mesh( geometry, material );
-    this.scene.add( cube );
-    //add transform controls
-    const controls = new TransformControls(this.camera, this.renderer.domElement)
-    controls.showZ = false
-
-    controls.attach(cube)
-    this.scene.add(controls)
+newArtwork(texture: string){
+  const loader = new THREE.TextureLoader();
+  const geometry = new THREE.BoxGeometry(2,2, 0.1);
+  const material = new THREE.MeshBasicMaterial( { map: loader.load(texture) } );
+  const cube = new THREE.Mesh( geometry, material );
+  this.scene.add( cube );
+  //add transform controls
+  const controls = new TransformControls(this.camera, this.renderer.domElement)
+  controls.showZ = false
+  controls.setMode("rotate")
+  controls.attach(cube)
+  this.scene.add(controls)
   }
 
 moveCamera(x: number,y: number,z: number){
