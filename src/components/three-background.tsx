@@ -3,6 +3,24 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 let root = new THREE.Object3D();
+const scene = new THREE.Scene();
+
+const loader = new GLTFLoader();
+loader.load("file:C:\\Users\\jinst\\OneDrive\\Desktop\\Curator Tool\\gallery-designer\\src\\models\\model.glb", function (glb) {
+  console.log(glb)
+  root = glb.scene
+  root.scale.set(.05,.05,.05)
+  root.rotation.set(90,0,0)
+  scene.add(root)
+  },
+    // called while loading is progressing
+  function ( xhr ) {
+    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+  },
+  // called when loading has errors
+  function ( error ) {
+    console.log( 'An error happened:'+error );
+  });
 
 class ThreeBackground extends Component {
   [x: string]: any;
@@ -10,8 +28,6 @@ class ThreeBackground extends Component {
   componentDidMount() {
     const width = this.mount.clientWidth;
     const height = 1080;
-    // ADD SCENE
-    this.scene = new THREE.Scene();
     // ADD CAMERA
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     this.camera.position.z = 4;
@@ -20,16 +36,9 @@ class ThreeBackground extends Component {
     this.renderer.setClearColor('#000000');
     this.renderer.setSize(width, height);
     this.mount.appendChild(this.renderer.domElement);
-    // ADD CUBE
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: '#433F81' });
-    this.cube = new THREE.Mesh(geometry, material);
-    this.scene.add(this.cube);
-    const loader = new GLTFLoader();
-    loader.load('../model/Zuccaire.glb', function (gltf) {
-      root = gltf.scene;
-    });
-    this.scene.add(root);
+    const light = new THREE.DirectionalLight(0xffffff, 1)
+    light.position.set(2,2,5)
+    scene.add(light)
     this.start();
   }
 
@@ -49,14 +58,12 @@ class ThreeBackground extends Component {
   };
 
   animate = () => {
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
     this.renderScene();
     this.frameId = window.requestAnimationFrame(this.animate);
   };
 
   renderScene = () => {
-    this.renderer.render(this.scene, this.camera);
+    this.renderer.render(scene, this.camera);
   };
 
   render() {
