@@ -1,0 +1,16 @@
+#render_box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75px;
+  text-align: center;
+  background-color: white;
+  border: solid 0.5px black;
+}
+#render_button {
+  background-color: white;
+  border: solid 0.5px black;
+}
+#head {
+  text-align: center;
+}
