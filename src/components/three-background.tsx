@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
 
 let root = new THREE.Object3D();
 const scene = new THREE.Scene();
@@ -42,6 +43,45 @@ class ThreeBackground extends Component {
     const light = new THREE.DirectionalLight(0xffffff, 1);
     light.position.set(2, 2, 5);
     scene.add(light);
+       //BUTTON CONNECTIONS
+       var testButton = document.getElementById("left-wall");
+       var leftWall = document.getElementById("left-wall")
+       var rightWall = document.getElementById("right-wall")
+       var middleLeftWall = document.getElementById("middle-wall-left")
+       var middleRightWall = document.getElementById("middle-wall-right")
+       var littleWall = document.getElementById("little-wall")
+       var backWall = document.getElementById("back-wall")
+   
+       testButton?.addEventListener("click", ()=>{
+         console.log("test button pressed");
+         this.newArtwork("file:/Users/bryce/Downloads/temp_photo_file.jpg")
+       });
+   
+       leftWall?.addEventListener("click",()=>{
+         //TODO: Move camer to wall
+       });
+   
+       rightWall?.addEventListener("click",()=>{
+         //TODO: Move camer to wall
+         //this.moveCamera(1,0.5,1)
+         this.rotateCamera(0,50,0)
+       });
+   
+       middleLeftWall?.addEventListener("click",()=>{
+         //TODO: Move camer to wall
+       });
+   
+       middleRightWall?.addEventListener("click",()=>{
+         //TODO: Move camer to wall
+       });
+   
+       littleWall?.addEventListener("click",()=>{
+         //TODO: Move camer to wall
+       });
+   
+       backWall?.addEventListener("click",()=>{
+         //TODO: Move camer to wall
+       });
     this.start();
   }
 
@@ -54,6 +94,7 @@ class ThreeBackground extends Component {
     if (!this.frameId) {
       this.frameId = requestAnimationFrame(this.animate);
     }
+
   };
 
   stop = () => {
@@ -78,5 +119,30 @@ class ThreeBackground extends Component {
       />
     );
   }
+newArtwork(texture: string){
+  const loader = new THREE.TextureLoader();
+  const geometry = new THREE.BoxGeometry(2,2, 0.1);
+  const material = new THREE.MeshBasicMaterial( { map: loader.load(texture) } );
+  const cube = new THREE.Mesh( geometry, material );
+  scene.add( cube );
+  //add transform controls
+  const controls = new TransformControls(this.camera, this.renderer.domElement)
+  controls.showZ = false
+  controls.setMode("scale")
+  controls.attach(cube)
+  scene.add(controls)
+  }
+
+moveCamera(x: number,y: number,z: number){
+  this.camera.position.x = x
+  this.camera.position.y = y
+  this.camera.position.z = z
+}
+
+rotateCamera(x:number, y: number, z:number){
+  this.camera.rotation.x = x
+  this.camera.rotation.y = y
+  this.camera.rotation.z = z
+}
 }
 export default ThreeBackground;
