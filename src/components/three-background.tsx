@@ -7,7 +7,7 @@ const scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
 loader.load(
-  'file:C:\\Users\\jinst\\OneDrive\\Desktop\\Curator Tool\\gallery-designer\\src\\models\\model.glb',
+  'file:Users/bryce/Documents/Classwork/Spring 2022/ISE 329/gallery-designer/src/models/model.glb',
   function (glb) {
     console.log(glb);
     root = glb.scene;
