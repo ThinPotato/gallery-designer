@@ -3,7 +3,7 @@ This is a volunteer project in association with the Zuccaire Gallery. This appli
 
 ## Features
 - [ ] Import images into the program
-- [ ] Selectable walls based on the floor-plan where images can be placed and sized in space
+- [X] Selectable walls based on the floor-plan where images can be placed and sized in space
 - [ ] JPEG export from multiple angles 
 - [ ] Saving projects so they can be added to and iterated on in the future.
 
