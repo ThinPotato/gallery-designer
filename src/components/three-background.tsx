@@ -6,21 +6,24 @@ let root = new THREE.Object3D();
 const scene = new THREE.Scene();
 
 const loader = new GLTFLoader();
-loader.load("file:C:\\Users\\jinst\\OneDrive\\Desktop\\Curator Tool\\gallery-designer\\src\\models\\model.glb", function (glb) {
-  console.log(glb)
-  root = glb.scene
-  root.scale.set(.05,.05,.05)
-  root.rotation.set(90,0,0)
-  scene.add(root)
+loader.load(
+  'file:C:\\Users\\jinst\\OneDrive\\Desktop\\Curator Tool\\gallery-designer\\src\\models\\model.glb',
+  function (glb) {
+    console.log(glb);
+    root = glb.scene;
+    root.scale.set(0.05, 0.05, 0.05);
+    root.rotation.set(90, 0, 0);
+    scene.add(root);
   },
-    // called while loading is progressing
-  function ( xhr ) {
-    console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+  // called while loading is progressing
+  function (xhr) {
+    console.log(`${(xhr.loaded / xhr.total) * 100}% loaded`);
   },
   // called when loading has errors
-  function ( error ) {
-    console.log( 'An error happened:'+error );
-  });
+  function (error) {
+    console.log(`An error happened:${error}`);
+  }
+);
 
 class ThreeBackground extends Component {
   [x: string]: any;
@@ -36,9 +39,9 @@ class ThreeBackground extends Component {
     this.renderer.setClearColor('#000000');
     this.renderer.setSize(width, height);
     this.mount.appendChild(this.renderer.domElement);
-    const light = new THREE.DirectionalLight(0xffffff, 1)
-    light.position.set(2,2,5)
-    scene.add(light)
+    const light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(2, 2, 5);
+    scene.add(light);
     this.start();
   }
 
