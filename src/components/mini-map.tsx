@@ -19,6 +19,7 @@ class MiniMap extends React.Component{
                                 <Button id="little-wall">Little Wall</Button>
                                 <Button id="back-wall">Back wall</Button>
                             </Col>
+                            <Button id="tool-switch">Switch Tools</Button>
                         </Container>
                     </Card.Body>
                 </Card>

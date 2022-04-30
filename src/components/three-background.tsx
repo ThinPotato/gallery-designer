@@ -8,6 +8,8 @@ const scene = new THREE.Scene();
 let artSpawnSpot = [0,0,0,0]
 
 const loader = new GLTFLoader();
+let allControls: TransformControls[] = []
+let mode = "scale"
 loader.load(
   'file:Users/bryce/Documents/Classwork/Spring 2022/ISE 329/gallery-designer/src/models/model.glb',
   function (glb) {
@@ -52,10 +54,20 @@ class ThreeBackground extends Component {
        var middleRightWall = document.getElementById("middle-wall-right")
        var littleWall = document.getElementById("little-wall")
        var backWall = document.getElementById("back-wall")
+       var switchTools = document.getElementById("tool-switch")
    
-       testButton?.addEventListener("click", ()=>{
-         console.log("test button pressed");
-         //this.newArtwork("file:/Users/bryce/Downloads/temp_photo_file.jpg")
+       switchTools?.addEventListener("click", ()=>{
+         for (var controller of allControls){
+            if (mode == "scale"){
+                controller.setMode("translate")
+                mode = "translate"
+              }
+              else{
+                controller.setMode("scale")
+                mode = "scale"
+              }
+            }
+         console.log("changed tools");
        });
    
        leftWall?.addEventListener("click",()=>{
@@ -144,9 +156,10 @@ newArtwork(texture: string){
   console.log(cube.position)
   scene.add( cube );
   //add transform controls
-  const controls = new TransformControls(this.camera, this.renderer.domElement)
-  controls.showZ = true
-  controls.setMode("translate")
+  let controls = new TransformControls(this.camera, this.renderer.domElement)
+  controls.addEventListener( 'change', this.render );
+  allControls.push(controls)
+  //controls.setMode("translate")
   controls.attach(cube)
   scene.add(controls)
   }
