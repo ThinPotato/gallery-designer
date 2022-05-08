@@ -11,7 +11,7 @@ const loader = new GLTFLoader();
 let allControls: TransformControls[] = []
 let mode = "scale"
 loader.load(
-  'file:Users/bryce/Documents/Classwork/Spring 2022/ISE 329/gallery-designer/src/models/model.glb',
+  'file:Users/michul/Desktop/current gallery code/gallery-designer/src/models/model.glb',
   function (glb) {
     console.log(glb);
     root = glb.scene;
