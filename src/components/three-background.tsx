@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
+import {currentImage} from '../renderer/App'
+import { Camera } from 'three';
 
 let root = new THREE.Object3D();
 const scene = new THREE.Scene();
@@ -33,8 +35,8 @@ class ThreeBackground extends Component {
   [x: string]: any;
 
   componentDidMount() {
-    const width = this.mount.clientWidth +300;
-    const height = 800;
+    const width = this.mount.clientWidth +400;
+    const height = 600;
     // ADD CAMERA
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     this.moveCamera(8,1.5,-10.3)
@@ -55,7 +57,21 @@ class ThreeBackground extends Component {
        var littleWall = document.getElementById("little-wall")
        var backWall = document.getElementById("back-wall")
        var switchTools = document.getElementById("tool-switch")
-   
+       var artWork = document.getElementById('art-work')
+       var screenShot = document.getElementById('screenshot');
+      
+       screenShot?.addEventListener("click", ()=>{
+        var imgData = this.renderer.domElement.toDataURL(artSpawnSpot);
+        var img = new Image()
+        img.src = imgData
+        console.log(img)
+       });
+
+       artWork?.addEventListener("click", ()=>{
+         this.newArtwork(currentImage)
+        console.log("artwork button clicked")
+       });
+
        switchTools?.addEventListener("click", ()=>{
          for (var controller of allControls){
             if (mode == "scale"){
@@ -71,16 +87,16 @@ class ThreeBackground extends Component {
        });
    
        leftWall?.addEventListener("click",()=>{
-         //TODO: Move camer to wall
+         //TODO: Move camera to wall
          this.moveCamera(8,1.5,-10.3)
          this.rotateCamera(0,1.6,0)
          artSpawnSpot = [0.1, 1.5, -8, 1.6]
        });
    
        rightWall?.addEventListener("click",()=>{
-         //this.moveCamera(9.8,1.5,-8.8)
-         //this.rotateCamera(0,-1.6,0)
-         this.newArtwork("file:/Users/bryce/Downloads/temp_photo_file.jpg")
+         this.moveCamera(9.8,1.5,-8.8)
+         this.rotateCamera(0,-1.6,0)
+         //this.newArtwork("file:/Users/michul/Desktop/testimages/FIRE.jpg")
        });
    
        middleLeftWall?.addEventListener("click",()=>{
