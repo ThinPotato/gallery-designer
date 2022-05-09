@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls';
+import {currentImage} from '../renderer/App';
 
 let root = new THREE.Object3D();
 const scene = new THREE.Scene();
@@ -9,9 +10,12 @@ let artSpawnSpot = [0,0,0,0]
 
 const loader = new GLTFLoader();
 let allControls: TransformControls[] = []
-let mode = "scale"
+let mode = "translate"
+let tools = true
+//let srcPath = path.join(__dirname, "../src/models");
+//console.log(srcPath)
 loader.load(
-  'file:Users/bryce/Documents/Classwork/Spring 2022/ISE 329/gallery-designer/src/models/model.glb',
+  'https://github.com/ThinPotato/gallery-designer/raw/6afc23ae28da143da76d4fb080f48bbcfb518801/src/models/model.glb',
   function (glb) {
     console.log(glb);
     root = glb.scene;
@@ -28,17 +32,19 @@ loader.load(
     console.log(`An error happened:${error}`);
   }
 );
+console.log('loaded model')
 
 class ThreeBackground extends Component {
   [x: string]: any;
 
   componentDidMount() {
-    const width = this.mount.clientWidth +300;
-    const height = 800;
+    const width = this.mount.clientWidth;
+    const height = 600;
     // ADD CAMERA
     this.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     this.moveCamera(8,1.5,-10.3)
-    this.rotateCamera(0,1.6,0)
+    this.rotateCamera(0,1.57,0)
+    artSpawnSpot = [0.1, 1.5, -8, 1.6]
     // ADD RENDERER
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setClearColor('#000000');
@@ -55,45 +61,78 @@ class ThreeBackground extends Component {
        var littleWall = document.getElementById("little-wall")
        var backWall = document.getElementById("back-wall")
        var switchTools = document.getElementById("tool-switch")
-   
+       var toggleTools = document.getElementById("tool-toggle")
+       var artWork = document.getElementById('art-work')
+       var screenShot = document.getElementById('screenshot');
+      
+       screenShot?.addEventListener("click", ()=>{
+        var imgData = this.renderer.domElement.toDataURL(artSpawnSpot);
+        var img = new Image()
+        img.src = imgData
+        console.log(img)
+       });
+
+       artWork?.addEventListener("click", ()=>{
+         this.newArtwork(currentImage)
+       });
+
+       toggleTools?.addEventListener("click", ()=>{
+         if(tools == true){
+          for (var controller of allControls){
+            controller.showX = false
+            controller.showY = false
+            controller.showZ = false
+          }
+          tools = false
+        }
+        else{
+          for (var controller of allControls){
+            controller.showX = true
+            controller.showY = true
+            controller.showZ = true
+          }
+          tools = true
+        }
+      });
+
        switchTools?.addEventListener("click", ()=>{
+         if(mode == "scale"){
+           mode = "translate"
+         }
+         else{
+           mode = "scale"
+         }
          for (var controller of allControls){
-            if (mode == "scale"){
-                controller.setMode("translate")
-                mode = "translate"
-              }
-              else{
-                controller.setMode("scale")
-                mode = "scale"
-              }
+                controller.setMode(mode)
             }
          console.log("changed tools");
        });
    
        leftWall?.addEventListener("click",()=>{
-         //TODO: Move camer to wall
+         //TODO: Move camera to wall
          this.moveCamera(8,1.5,-10.3)
-         this.rotateCamera(0,1.6,0)
-         artSpawnSpot = [0.1, 1.5, -8, 1.6]
+         this.rotateCamera(0,1.57,0)
+         artSpawnSpot = [0.1, 1.5, -8, 1.57]
        });
    
        rightWall?.addEventListener("click",()=>{
-         //this.moveCamera(9.8,1.5,-8.8)
-         //this.rotateCamera(0,-1.6,0)
-         this.newArtwork("file:/Users/bryce/Downloads/temp_photo_file.jpg")
+         this.moveCamera(9.8,1.5,-8.8)
+         this.rotateCamera(0,-1.57,0)
+         artSpawnSpot = [12, 1.5, -8, -1.57]
        });
    
        middleLeftWall?.addEventListener("click",()=>{
          //TODO: Move camer to wall
          this.moveCamera(4.9,1.5,-8.2)
-         this.rotateCamera(0,-1.6,0)
-         artSpawnSpot = [9, 1.5, -8, -1.6]
+         this.rotateCamera(0,-1.57,0)
+         artSpawnSpot = [9, 1.5, -8, -1.57]
        });
    
        middleRightWall?.addEventListener("click",()=>{
          //TODO: Move camer to wall
          this.moveCamera(12.1,1.5,-8.4)
-         this.rotateCamera(0,1.6,0)
+         this.rotateCamera(0,1.57,0)
+         artSpawnSpot = [9.4, 1.5, -8, 1.57]
        });
    
        littleWall?.addEventListener("click",()=>{

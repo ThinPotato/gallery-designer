@@ -31,8 +31,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "Gallery-Builder",
+    "appId": "org.erb.c4g",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
