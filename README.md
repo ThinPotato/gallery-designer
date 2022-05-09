@@ -25,7 +25,7 @@ This is a volunteer project in association with the Zuccaire Gallery. This appli
     - [Resources for Learning Electron](#resources-for-learning-electron)
     - [License](#license)
 ## Client Background 
-### [Georgia Lamair Tomczak](georgia.lamair@stonybrook.edu)
+### Georgia Lamair Tomczak (georgia.lamair@stonybrook.edu)
 #### Public Programs Director
 The Paul W. Zuccaire Gallery is a 5,000 square foot space in the Staller Center for the Arts at Stony Brook University. It represents a dynamic space in which professional and student exhibits are showcased. Every year, the gallery presents exhibitions from works of Stony Brook University undergraduates and graduate students as well as exhibitions from the distinguished faculty of the Art Department. 
 
@@ -36,14 +36,17 @@ The Zuccaire Gallery needs a type of curation tool that would allow them to be a
 The solution would be to create an electron based application such that it’s able to run on both MacOS and windows based machines. The ideal experience would be one in which the user is able to open the program up and be able to select their preferred images from their file explorer. From there, the images would be loaded onto an “art-bar,” where selecting a preferred wall, selecting a preferred image, and then a canvas creates it within the blender gallery model. At the end, users would be able to move their image within an xyz plane as well as be able to resize the image model as well.
 
 ## Developers
-### [Bryce Stoker-Schaeffer](Bryce.stoker-schaeffer@stonybrook.edu)
+### [Bryce Stoker-Schaeffer](https://github.com/ThinPotato)
 #### Researcher
+bryce.stoker-schaeffer@stonybrook.edu
 
-### [Steven Jin](steven.jin@stonybrook.edu)
+### [Steven Jin](https://github.com/StevenJin7820)
 #### Evangelist
+steven.jin@stonybrook.edu
 
-### [Michael La](Michael.la@stonybrook.edu)
+### [Michael La](https://github.com/MichaelLa99)
 #### Team Secretary
+michael.la@stonybrook.edu
 
 
 ## Planned Features
