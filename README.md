@@ -2,13 +2,26 @@
 This is a volunteer project in association with the Zuccaire Gallery. This application creates a virtual enviornement where the curators can visualize their gallery in any array of layouts and designs. The purpose of this application is to help make designing the gallery for different exhibitions as easy as possible.
 
 ## Client Background 
+### [Georgia Lamair Tomczak](georgia.lamair@stonybrook.edu)
+#### Public Programs Director
 The Paul W. Zuccaire Gallery is a 5,000 square foot space in the Staller Center for the Arts at Stony Brook University. It represents a dynamic space in which professional and student exhibits are showcased. Every year, the gallery presents exhibitions from works of Stony Brook University undergraduates and graduate students as well as exhibitions from the distinguished faculty of the Art Department. 
 
 ## Problem Statement
 The Zuccaire Gallery needs a type of curation tool that would allow them to be able to import potential art pieces into a program and then from there be able to virtually design as well as plan for their future exhibits. The current way of using hand drawings and design templates within MS Word is both not time efficient and cannot create work that is in a standardized order.
 
 ## Outline of Solution
-The solution would be to create an electron based application such that it’s able to run on both MacOS and windows based machines. The ideal experience would be one in which the user is able to open the program up and be able to select their preferred images from their file explorer. From there, the images would be loaded onto an “art-bar,” where selecting a preferred wall, selecting a preferred image, and then a canvas creates it within the blender gallery model. At the end, users would be able to move their image within an xyz plane as well as be able to resize the image model as well. 
+The solution would be to create an electron based application such that it’s able to run on both MacOS and windows based machines. The ideal experience would be one in which the user is able to open the program up and be able to select their preferred images from their file explorer. From there, the images would be loaded onto an “art-bar,” where selecting a preferred wall, selecting a preferred image, and then a canvas creates it within the blender gallery model. At the end, users would be able to move their image within an xyz plane as well as be able to resize the image model as well.
+
+## Developers
+### [Bryce Stoker-Schaeffer](Bryce.stoker-schaeffer@stonybrook.edu)
+#### Researcher
+
+### [Steven Jin](steven.jin@stonybrook.edu)
+#### Evangelist
+
+### [Michael La](Michael.la@stonybrook.edu)
+#### Team Secretary
+
 
 ## Planned Features
 - [X] Import images into the program
