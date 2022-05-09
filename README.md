@@ -1,6 +1,29 @@
 # Gallery Designer
 This is a volunteer project in association with the Zuccaire Gallery. This application creates a virtual enviornement where the curators can visualize their gallery in any array of layouts and designs. The purpose of this application is to help make designing the gallery for different exhibitions as easy as possible.
-
+- [Gallery Designer](#gallery-designer)
+  - [Client Background](#client-background)
+    - [Georgia Lamair Tomczak](#georgia-lamair-tomczak)
+      - [Public Programs Director](#public-programs-director)
+  - [Problem Statement](#problem-statement)
+  - [Outline of Solution](#outline-of-solution)
+  - [Developers](#developers)
+    - [Bryce Stoker-Schaeffer](#bryce-stoker-schaeffer)
+      - [Researcher](#researcher)
+    - [Steven Jin](#steven-jin)
+      - [Evangelist](#evangelist)
+    - [Michael La](#michael-la)
+      - [Team Secretary](#team-secretary)
+  - [Planned Features](#planned-features)
+  - [Wireframe](#wireframe)
+  - [UI mockup](#ui-mockup)
+  - [Software Information for Users](#software-information-for-users)
+    - [To Install](#to-install)
+    - [To Use](#to-use)
+  - [Software Information for Developers](#software-information-for-developers)
+    - [To Use](#to-use-1)
+    - [To build](#to-build)
+    - [Resources for Learning Electron](#resources-for-learning-electron)
+    - [License](#license)
 ## Client Background 
 ### [Georgia Lamair Tomczak](georgia.lamair@stonybrook.edu)
 #### Public Programs Director
