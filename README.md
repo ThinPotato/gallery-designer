@@ -15,12 +15,15 @@ The solution would be to create an electron based application such that it’s a
 ## Developers
 ### [Bryce Stoker-Schaeffer](https://github.com/ThinPotato)
 #### Researcher
+bryce.stoker-schaeffer@stonybrook.edu
 
 ### [Steven Jin](https://github.com/StevenJin7820)
 #### Evangelist
+steven.jin@stonybrook.edu
 
 ### [Michael La](https://github.com/MichaelLa99)
 #### Team Secretary
+michael.la@stonybrook.edu
 
 
 ## Planned Features
